@@ -9,15 +9,13 @@ public class CybertekApp {
 
         ApplicationContext container= new ClassPathXmlApplicationContext("config.xml");
 
-        Course course1= container.getBean("java",Course.class);
-        Course course2= container.getBean("java",Course.class);
+        Course course= container.getBean("java",Course.class);
 
-        course1.getTeachHours();
 
-        System.out.println(" Pointing to the same object: "+(course1==course2));
+        course.getTeachHours();
 
-        System.out.println(" Memory Location for the course1 "+ course1);
-        System.out.println(" Memory Location for the course2 "+ course2);
+        ((ClassPathXmlApplicationContext) container).close();
+
 
     }
 }
